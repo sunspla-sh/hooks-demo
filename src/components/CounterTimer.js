@@ -6,9 +6,14 @@ function CounterTimer(){
 
   useEffect(() => {
     console.log('hey the use effect hook runs')
-    setInterval(() => {
+    let intervalId = setInterval(() => {
       setTheCount((prevCount) => prevCount + 1)
     }, 1000);
+
+    return () => {
+      console.log('cleanup from useEffect')
+      clearInterval(intervalId);
+    };
   }, [])
 
   return (

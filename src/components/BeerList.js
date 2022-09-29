@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function BeerList(){
+function BeerList(props){
 
   const [myBeers, setMyBeers] = useState([]);
 
@@ -14,6 +14,11 @@ function BeerList(){
   return (
     <div>
       <h3>Beer List</h3>
+      <div>
+        <h5>Prop from App.js</h5>
+        <p>{props.myValue}</p>
+        <button onClick={() => props.setMyValue(props.myValue + 1)}>+</button>
+      </div>
       {myBeers.map(singleBeer => {
         return (
           <div>
